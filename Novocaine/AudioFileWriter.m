@@ -76,6 +76,10 @@
     if (self)
     {
         
+        if(thisNumChannels == 0){
+          NSLog(@"WARNING. AudioFileWriter initialized with numChannels of zero. This is bad.");
+        }
+        
         // Zero-out our timer, so we know we're not using our callback yet
         self.callbackTimer = nil;
         
