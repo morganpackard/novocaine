@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSupportsSuddenTermination</key>
+	<false/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 </dict>
 </plist>
