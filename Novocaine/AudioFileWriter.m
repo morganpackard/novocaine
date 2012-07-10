@@ -90,7 +90,7 @@
 
         AudioStreamBasicDescription outputFileDesc = {44100.0, kAudioFormatMPEG4AAC, 0, 0, 1024, 0, 2, 0, 0};
         
-        CheckError(ExtAudioFileCreateWithURL(audioFileRef, kAudioFileM4AType, &outputFileDesc, NULL, 0, &_outputFile), "Creating file");
+        CheckError(ExtAudioFileCreateWithURL(audioFileRef, kAudioFileM4AType, &outputFileDesc, NULL, kAudioFileFlags_EraseFile, &_outputFile), "Creating file");
         
         
         // Set a few defaults and presets
@@ -112,7 +112,7 @@
         _outputFormat.mBitsPerChannel = 32;
         
         // Apply the format to our file
-        ExtAudioFileSetProperty(_outputFile, kExtAudioFileProperty_ClientDataFormat, sizeof(AudioStreamBasicDescription), &_outputFormat);
+        CheckError(ExtAudioFileSetProperty(_outputFile, kExtAudioFileProperty_ClientDataFormat, sizeof(AudioStreamBasicDescription), &_outputFormat), "Setting kExtAudioFileProperty_ClientDataFormat");
         
         
         // Arbitrary buffer sizes that don't matter so much as long as they're "big enough"
